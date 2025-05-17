@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
+
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
 
@@ -26,6 +27,7 @@ function LoginForm({ onRegisterClick }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login attempt with:', { username, password });
+    // Here you would typically handle authentication
   };
 
   return (
