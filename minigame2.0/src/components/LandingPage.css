@@ -1,0 +1,44 @@
+/* LandingPage.css */
+.landing-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1e3a8a, #1e40af);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.logout-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #b91c1c;
+}
+
+.welcome-heading {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}

@@ -1,49 +1,40 @@
 import React from 'react';
+import GameCard from './GameCard';
 import './LandingPage.css';
 
-function LandingPage({ username, onGameSelect }) {
-  return (
-    <div className="landing-container">
-      <h1 className="welcome-text">Welcome, {username || 'Dawn'}!</h1>
-      
-      <div className="game-cards-container">
-        <div className="game-card">
-          <div className="game-icon science-icon">
-            <img 
-              src="/api/placeholder/200/200" 
-              alt="Science game illustration" 
-              className="game-illustration"
-            />
-          </div>
-          <p className="game-description">
-            Match the correct scientific term to its definition before time runs out!
-          </p>
-          <button 
-            className="play-button"
-            onClick={() => onGameSelect('science')}
-          >
-            Play
-          </button>
-        </div>
+function LandingPage({ username, onGameSelect, onLogout }) {
+  const games = [
+    {
+      id: 'science',
+      title: "Science Game",
+      description: "Match the correct scientific term to its definition before time runs out!",
+      iconSrc: "/images/science.png",
+      altText: "Science game illustration"
+    },
+    {
+      id: 'language',
+      title: "Language Game",
+      description: "Translate the Swedish word into English to earn points!",
+      iconSrc: "/images/language.png",
+      altText: "Language game illustration"
+    }
+  ];
 
-        <div className="game-card">
-          <div className="game-icon language-icon">
-            <img 
-              src="/api/placeholder/200/200" 
-              alt="Language game illustration" 
-              className="game-illustration"
-            />
-          </div>
-          <p className="game-description">
-            Translate the Swedish word into English to earn points!
-          </p>
-          <button 
-            className="play-button"
-            onClick={() => onGameSelect('language')}
-          >
-            Play
-          </button>
-        </div>
+  return (
+    <div className="landing-page">
+      <button onClick={onLogout} className="logout-button">Logout</button>
+      <h1 className="welcome-heading">Welcome, {username}!</h1>
+      <div className="game-grid">
+        {games.map((game) => (
+          <GameCard 
+            key={game.id}
+            title={game.title}
+            description={game.description}
+            iconSrc={game.iconSrc}
+            altText={game.altText}
+            onPlay={() => onGameSelect(game.id)}
+          />
+        ))}
       </div>
     </div>
   );
