@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import LandingPage from './assets/pages/LandingPage';
+import ScienceGame from './assets/pages/ScienceGame';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [currentGame, setCurrentGame] = useState(null);
 
   // Check if user is already logged in on component mount
   useEffect(() => {
@@ -32,17 +34,42 @@ function App() {
   const handleLogout = () => {
     setLoggedInUser(null);
     setCurrentPage('login');
+    setCurrentGame(null);
     // Clear login state
     localStorage.removeItem('loggedInUser');
   };
 
   const handleGameSelect = (gameType) => {
     alert(`You selected the ${gameType} game!`);
+    setCurrentGame(gameType);
+  };
+
+  const handleBackToLanding = () => {
+    setCurrentGame(null);
   };
 
   if (loggedInUser) {
-    return <LandingPage username={loggedInUser} onGameSelect={handleGameSelect} onLogout={handleLogout} />;
+    if (currentGame === 'science') {
+      // Pass onBack function to ScienceGame component
+      return (
+        <div>
+          <button onClick={handleBackToLanding} className="back-button">Back to Games</button>
+          <ScienceGame />
+        </div>
+      );
+    } else if (currentGame === 'language') {
+      // Replace with Language game component when available
+      return (
+        <div>
+          <button onClick={handleBackToLanding} className="back-button">Back to Games</button>
+          <div>Language Game Coming Soon!</div>
+        </div>
+      );
+    } else {
+      return <LandingPage username={loggedInUser} onGameSelect={handleGameSelect} onLogout={handleLogout} />;
+    }
   }
+
 
   return (
     <div className="app">

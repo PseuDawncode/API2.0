@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import QuestionCard from "./QuestionCard";
-import "./App.css";
+import QuestionCard from "../../components/QuestionCard";
+import "./ScienceGame.css";
 
 const ScienceGame = () => {
   const [questions, setQuestions] = useState([]);
