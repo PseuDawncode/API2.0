@@ -39,8 +39,9 @@ const ScienceGame = () => {
     return <div className="score">Final Score: {score} / {questions.length}</div>;
 
   return (
-    <div className="app">
+    <div className="game">
       <h1>Open Trivia Game</h1>
+      <p>Answer only 10 trivia games</p>
       <QuestionCard
         questionData={questions[currentIndex]}
         handleAnswer={handleAnswer}
