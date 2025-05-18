@@ -1,5 +1,5 @@
 import React from 'react';
-import GameCard from './GameCard';
+import GameCard from '../../components/GameCard';
 import './LandingPage.css';
 
 function LandingPage({ username, onGameSelect, onLogout }) {

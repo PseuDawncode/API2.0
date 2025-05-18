@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import LandingPage from './components/LandingPage';
+import LandingPage from './assets/pages/LandingPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
