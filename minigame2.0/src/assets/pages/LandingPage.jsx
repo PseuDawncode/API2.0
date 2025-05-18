@@ -1,6 +1,8 @@
 import React from 'react';
 import GameCard from '../../components/GameCard';
 import './LandingPage.css';
+import scienceImg from '../images/science.png';
+import swedishImg from '../images/language.png';
 
 function LandingPage({ username, onGameSelect, onLogout }) {
   const games = [
@@ -8,14 +10,14 @@ function LandingPage({ username, onGameSelect, onLogout }) {
       id: 'science',
       title: "Science Game",
       description: "Match the correct scientific term to its definition before time runs out!",
-      iconSrc: "/images/science.png",
+      iconSrc: scienceImg,
       altText: "Science game illustration"
     },
     {
       id: 'language',
       title: "Language Game",
-      description: "Translate the Swedish word into English to earn points!",
-      iconSrc: "/images/language.png",
+      description: "Translate the Swedish word into English to earn points! Beat it!",
+      iconSrc: swedishImg,
       altText: "Language game illustration"
     }
   ];
